@@ -184,6 +184,66 @@ button.small{padding:6px 12px;font-size:0.78rem;border-radius:7px;}
 
 footer{text-align:center;margin-top:26px;font-size:0.76rem;color:var(--ink-faint);}
 footer button{background:none;border:none;color:var(--ink-faint);text-decoration:underline;cursor:pointer;font-weight:400;font-size:0.76rem;padding:0;}
+/* ---- Analysis tab ---- */
+.ana-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+.ana-nav button{background:var(--surface);border:1.5px solid var(--line);color:var(--ink);border-radius:20px;padding:7px 14px;font-size:0.8rem;font-weight:700;cursor:pointer;font-family:inherit;}
+.ana-filter{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 16px;margin-bottom:18px;}
+.ana-filter .lbl{font-size:0.78rem;font-weight:700;color:var(--ink-soft);margin-bottom:8px;display:block;}
+.ana-filter .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+.ana-filter input[type="date"], .ana-ctl select{padding:8px 10px;border:1.5px solid var(--line);border-radius:9px;font-family:inherit;font-size:0.84rem;background:var(--surface);}
+.ana-filter .sep{color:var(--ink-faint);font-size:0.82rem;}
+.ana-section{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:26px;overflow:hidden;border-top:4px solid var(--primary);}
+.ana-section.s2{border-top-color:var(--accent);}
+.ana-section.s3{border-top-color:var(--ok);}
+.ana-head{padding:16px 18px 12px;display:flex;gap:12px;align-items:flex-start;border-bottom:1px solid var(--line);}
+.ana-head .n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--primary);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:0.9rem;}
+.ana-section.s2 .ana-head .n{background:var(--accent);}
+.ana-section.s3 .ana-head .n{background:var(--ok);}
+.ana-head h3{margin:0;font-size:1.05rem;}
+.ana-head p{margin:2px 0 0;font-size:0.78rem;color:var(--ink-soft);}
+.ana-body{padding:16px 18px 18px;}
+.ana-sub{font-size:0.86rem;font-weight:700;margin:18px 0 10px;padding-top:14px;border-top:1px dashed var(--line);}
+.ana-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px;}
+.ana-stat{background:var(--surface-2);border-radius:10px;padding:11px 13px;}
+.ana-stat .v{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:1.1rem;display:block;}
+.ana-stat .l{font-size:0.72rem;color:var(--ink-soft);}
+.ana-stat .d{font-size:0.7rem;font-weight:700;margin-top:2px;display:block;}
+.up{color:var(--ok);} .down{color:var(--bad);}
+.ana-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.ana-table{width:100%;border-collapse:collapse;font-size:0.82rem;min-width:720px;}
+.ana-table th{background:var(--surface-2);text-align:right;padding:9px 10px;font-weight:700;color:var(--ink-soft);cursor:pointer;white-space:nowrap;user-select:none;}
+.ana-table th:first-child, .ana-table td:first-child{text-align:left;position:sticky;left:0;background:var(--surface);}
+.ana-table th:first-child{background:var(--surface-2);}
+.ana-table td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--line);font-family:'IBM Plex Mono',monospace;white-space:nowrap;}
+.ana-table td:first-child{font-family:inherit;font-weight:600;max-width:150px;overflow:hidden;text-overflow:ellipsis;}
+.ana-table tfoot td{font-weight:800;background:var(--surface-2);border-bottom:none;}
+.ana-table tfoot td:first-child{background:var(--surface-2);}
+.ana-bars{display:flex;align-items:flex-end;gap:5px;height:190px;padding-top:6px;overflow-x:auto;}
+.ana-bar-col{flex:1 0 0;min-width:26px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;background:none;border:none;padding:0;cursor:pointer;font-family:inherit;}
+.ana-bar-col .val{font-size:0.6rem;color:var(--ink-soft);margin-bottom:3px;font-family:'IBM Plex Mono',monospace;white-space:nowrap;}
+.ana-bar-col .stack{width:100%;max-width:34px;display:flex;flex-direction:column-reverse;border-radius:6px 6px 2px 2px;overflow:hidden;min-height:2px;}
+.ana-bar-col:hover .stack{outline:2px solid var(--primary-bg);}
+.ana-bar-col .lab{font-size:0.64rem;color:var(--ink-faint);margin-top:5px;white-space:nowrap;}
+.ana-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:0.74rem;color:var(--ink-soft);margin:8px 0 4px;}
+.ana-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px;}
+.ana-ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px;}
+.ana-ctl .grow{flex:1 1 auto;}
+.ana-rank{border:1.5px solid var(--line);border-radius:11px;margin-bottom:8px;background:var(--surface);}
+.ana-rank summary{list-style:none;cursor:pointer;padding:11px 13px;display:grid;grid-template-columns:30px 1fr auto;gap:4px 10px;align-items:center;}
+.ana-rank summary::-webkit-details-marker{display:none;}
+.ana-rank .pos{font-weight:800;color:var(--ink-faint);font-size:1rem;text-align:center;}
+.ana-rank .nm{font-weight:700;font-size:0.92rem;}
+.ana-rank .sc{font-family:'IBM Plex Mono',monospace;font-weight:800;font-size:1.05rem;}
+.ana-rank .tags{grid-column:2/4;display:flex;gap:5px;flex-wrap:wrap;}
+.ana-rank .metrics{padding:2px 13px 13px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;}
+.ana-rank .metrics div{background:var(--surface-2);border-radius:8px;padding:8px 10px;font-size:0.72rem;color:var(--ink-soft);}
+.ana-rank .metrics b{display:block;color:var(--ink);font-size:0.86rem;font-family:'IBM Plex Mono',monospace;}
+.ana-grp{display:inline-flex;align-items:center;gap:6px;border-radius:20px;padding:5px 12px;font-size:0.78rem;font-weight:700;}
+.ana-heat{border-collapse:collapse;font-size:0.72rem;min-width:100%;}
+.ana-heat th{padding:5px 6px;font-weight:700;color:var(--ink-soft);max-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.ana-heat td{padding:6px 8px;text-align:center;font-family:'IBM Plex Mono',monospace;border:1px solid #fff;}
+.ana-heat td:first-child{text-align:left;font-family:inherit;font-weight:600;white-space:nowrap;background:var(--surface);position:sticky;left:0;}
+.ana-note{font-size:0.74rem;color:var(--ink-faint);line-height:1.5;margin-top:10px;}
 </style>
 </head>
 <body>
@@ -212,6 +272,10 @@ footer button{background:none;border:none;color:var(--ink-faint);text-decoration
     <button type="button" class="tab-btn" data-tab="dashboard">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
       แดชบอร์ด
+    </button>
+    <button type="button" class="tab-btn" data-tab="analysis">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+      วิเคราะห์ร้าน
     </button>
     <button type="button" class="tab-btn" data-tab="status">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 19a8 8 0 100-16 8 8 0 000 16z"/><path d="M21 21l-4.35-4.35"/></svg>
@@ -288,6 +352,85 @@ footer button{background:none;border:none;color:var(--ink-faint);text-decoration
     </div>
   </section>
 
+  <!-- ================= ANALYSIS TAB ================= -->
+  <section class="tab-panel" data-tab="analysis">
+    <div class="ana-nav">
+      <button type="button" data-goto="anaSec1">1 สรุปรายร้าน</button>
+      <button type="button" data-goto="anaSec2">2 ยอดตามช่วงเวลา</button>
+      <button type="button" data-goto="anaSec3">3 ร้านไหนขายดี</button>
+    </div>
+
+    <div class="ana-filter">
+      <span class="lbl">ช่วงเวลาที่วิเคราะห์ (ใช้กับส่วนที่ 1, 3 และรายการชำระในส่วนที่ 2)</span>
+      <div class="row">
+        <div class="filters" id="anaPresets">
+          <button type="button" class="filter-btn" data-preset="all">ทั้งหมด</button>
+          <button type="button" class="filter-btn" data-preset="today">วันนี้</button>
+          <button type="button" class="filter-btn" data-preset="month">เดือนนี้</button>
+          <button type="button" class="filter-btn" data-preset="year">ปีนี้</button>
+        </div>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <span class="sep">เลือกวันเดียว</span><input type="date" id="anaDay">
+        <span class="sep">หรือช่วง</span><input type="date" id="anaFrom"><span class="sep">ถึง</span><input type="date" id="anaTo">
+      </div>
+      <div class="hint" id="anaRangeText" style="margin-top:8px;"></div>
+    </div>
+
+    <!-- ส่วนที่ 1 -->
+    <div class="ana-section s1" id="anaSec1">
+      <div class="ana-head"><div class="n">1</div><div><h3>สรุปยอดชำระและต้นทุนรายร้าน</h3><p>ยอดชำระ ต้นทุน และกำไรขั้นต้นของแต่ละร้านในช่วงเวลาที่เลือก กดหัวคอลัมน์เพื่อเรียงลำดับ</p></div></div>
+      <div class="ana-body">
+        <div class="ana-stats" id="anaStats"></div>
+        <div class="ana-table-wrap"><table class="ana-table" id="anaTable"></table></div>
+        <div class="ana-note">ทุนส่งสินค้า = จำนวนที่ส่งเข้าร้านในช่วงเวลา × ราคาทุนสินค้า (ตรงกับ "ต้นทุนรวมที่ส่ง" ในป๊อปอัปร้านค้า เมื่อดูแบบ "ทั้งหมด") · ต้นทุน = จำนวนที่ร้านชำระ × ราคาทุนปัจจุบันของสินค้า · กำไรขั้นต้น = ยอดชำระ − ต้นทุน · "ค้างชำระ" เป็นยอดปัจจุบัน (ไม่ขึ้นกับช่วงเวลา)</div>
+      </div>
+    </div>
+
+    <!-- ส่วนที่ 2 -->
+    <div class="ana-section s2" id="anaSec2">
+      <div class="ana-head"><div class="n">2</div><div><h3>ยอดตามช่วงเวลา (รายวัน / เดือน / ปี)</h3><p>กดแท่งกราฟเพื่อเจาะลึก: ปี → เดือน → วัน → รายการชำระของวันนั้น</p></div></div>
+      <div class="ana-body">
+        <div class="ana-ctl">
+          <div class="filters" id="anaModes">
+            <button type="button" class="filter-btn" data-mode="day">รายวัน</button>
+            <button type="button" class="filter-btn" data-mode="month">รายเดือน</button>
+            <button type="button" class="filter-btn" data-mode="year">รายปี</button>
+          </div>
+          <span class="grow"></span>
+          <select id="anaChartStore"></select>
+        </div>
+        <div class="ana-ctl">
+          <button type="button" class="ghost small" id="anaPrev">‹</button>
+          <strong id="anaChartLabel" style="font-size:0.9rem;"></strong>
+          <button type="button" class="ghost small" id="anaNext">›</button>
+          <span class="grow"></span>
+          <button type="button" class="ghost small" id="anaUp">ย้อนระดับ</button>
+        </div>
+        <div class="ana-bars" id="anaChart"></div>
+        <div class="ana-legend"><span><i style="background:var(--accent)"></i>ต้นทุน</span><span><i style="background:var(--primary)"></i>กำไรขั้นต้น</span><span>ความสูงแท่ง = ยอดชำระ</span></div>
+        <div class="ana-stats" id="anaChartStats" style="margin-top:10px;"></div>
+
+        <div class="ana-sub">รายการชำระในช่วงเวลาที่เลือก (ตามตัวกรองด้านบน)</div>
+        <div id="anaPayList"></div>
+      </div>
+    </div>
+
+    <!-- ส่วนที่ 3 -->
+    <div class="ana-section s3" id="anaSec3">
+      <div class="ana-head"><div class="n">3</div><div><h3>วิเคราะห์ว่าร้านไหนขายดี</h3><p>ให้คะแนนแต่ละร้านจากหลายปัจจัย ในช่วงเวลาที่เลือก กดที่ร้านเพื่อดูรายละเอียด</p></div></div>
+      <div class="ana-body">
+        <div id="anaGroups" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;"></div>
+        <div id="anaRank"></div>
+        <div class="ana-sub">กราฟกระจาย: ยอดชำระ (แนวนอน) เทียบอัตราขายออก (แนวตั้ง)</div>
+        <div id="anaScatter"></div>
+        <div class="ana-sub">ร้านเทียบสินค้า (จำนวนที่ชำระ)</div>
+        <div class="ana-table-wrap" id="anaHeat"></div>
+        <div class="ana-note" id="anaScoreNote"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= STATUS TAB (store/product lookup) ================= -->
   <section class="tab-panel" data-tab="status">
     <div class="period-picker" id="statusModePicker">
@@ -360,6 +503,7 @@ footer button{background:none;border:none;color:var(--ink-faint);text-decoration
       <input type="text" id="storeSearch" placeholder="ค้นหาชื่อร้านค้า ผู้ติดต่อ เบอร์โทร...">
       <div class="spacer"></div>
       <button type="button" class="ghost" id="showStoresMapBtn">แผนที่ร้านค้า</button>
+      <button type="button" class="primary" id="retailSaleBtn" style="background:var(--ok);border-color:var(--ok);">ขายปลีก</button>
       <button type="button" class="ghost" id="showHistoryBtn">ประวัติ</button>
       <button type="button" class="primary" id="addStoreBtn">+ เพิ่มร้านค้า</button>
     </div>
@@ -410,8 +554,8 @@ footer button{background:none;border:none;color:var(--ink-faint);text-decoration
   </section>
 
   <footer>
-    ข้อมูลถูกบันทึกในฐานข้อมูลกลาง ใครก็ตามที่เปิดแอปนี้จะเห็นข้อมูลชุดเดียวกัน &nbsp;·&nbsp;
-    <button id="resetAll">ล้างข้อมูลทั้งหมด</button>
+    <button type="button" id="backupBtn" class="ghost small" style="text-decoration:none;">สำรอง / นำเข้าข้อมูล</button>
+    <div id="backupInfo" style="margin-top:6px;"></div>
   </footer>
 </div>
 
@@ -523,12 +667,25 @@ function initFirebase(){
     return false;
   }
 }
+/* ---------------- Retail ("ลูกค้าทั่วไป") store ---------------- */
+const RETAIL_STORE_ID = 'store_retail';
+function isRetailStore(st){ return !!(st && (st.isRetail || st.id === RETAIL_STORE_ID)); }
+function ensureRetailStore(){
+  if(stores.some(function(x){ return isRetailStore(x); })) return false;
+  stores.push({ id: RETAIL_STORE_ID, name: 'ลูกค้าทั่วไป', isRetail: true, contact:'', phone:'', address:'',
+    note: 'ร้านพิเศษสำหรับบันทึกการขายปลีกหน้าร้าน (ลบไม่ได้)', createdAt: Date.now() });
+  return true;
+}
 async function loadAll(){
   if(!initFirebase()){ renderAll(); return; }
+  let loadedOk = false;
   try{
     const snap = await docRef.get();
+    loadedOk = true;
+    dataLoaded = true;
     if(snap.exists){
       const d = snap.data();
+      serverCount = countData(d); saveAutoCopy(d);
       shipments = d.shipments || [];
       products = d.products || [];
       stores = d.stores || [];
@@ -542,11 +699,15 @@ async function loadAll(){
     console.error(e);
     toast('โหลดข้อมูลจากฐานข้อมูลไม่สำเร็จ: ' + e.message, 'error');
   }
+  // only auto-create the retail store when the load really succeeded (never write over data we failed to read)
+  if(loadedOk){ if(ensureRetailStore() && firebaseReady){ saveAll(); } }
+  else { ensureRetailStore(); }
   renderAll();
   if(docRef){
     docRef.onSnapshot(function(snap){
       if(!snap.exists) return;
       const d = snap.data();
+      dataLoaded = true; serverCount = countData(d); saveAutoCopy(d);
       shipments = d.shipments || [];
       products = d.products || [];
       stores = d.stores || [];
@@ -554,14 +715,31 @@ async function loadAll(){
       payments = d.payments || [];
       expenses = d.expenses || [];
       materials = d.materials || [];
+      if(ensureRetailStore()){ saveAll(); }
       renderAll();
     });
   }
 }
-async function saveAll(){
+let dataLoaded = false;   // true only after the server document was read successfully
+let serverCount = 0;      // how many records the server had at the last read
+function countData(o){
+  return (o.products||[]).length + (o.shipments||[]).length + (o.payments||[]).length + (o.expenses||[]).length +
+    (o.materials||[]).length + (o.returnsData||[]).length + (o.stores||[]).filter(function(x){ return !isRetailStore(x); }).length;
+}
+async function saveAll(force){
   if(!firebaseReady){
     toast('ยังไม่ได้เชื่อมต่อฐานข้อมูล ข้อมูลนี้จะไม่ถูกบันทึกถาวร', 'error');
     return false;
+  }
+  if(force !== true){
+    if(!dataLoaded){
+      toast('ยังโหลดข้อมูลจากฐานข้อมูลไม่สำเร็จ จึงไม่บันทึกเพื่อป้องกันข้อมูลถูกเขียนทับ — กรุณารีเฟรชหน้าเว็บแล้วลองใหม่', 'error');
+      return false;
+    }
+    if(serverCount >= 3 && countData({ products:products, shipments:shipments, payments:payments, expenses:expenses, materials:materials, returnsData:returnsData, stores:stores }) === 0){
+      toast('ป้องกันข้อมูลหาย: ข้อมูลในเครื่องว่างเปล่าแต่ฐานข้อมูลมีข้อมูลอยู่ จึงไม่บันทึก — กรุณารีเฟรชหน้าเว็บ', 'error');
+      return false;
+    }
   }
   try{
     await docRef.set({
@@ -576,7 +754,7 @@ async function saveAll(){
     return false;
   }
 }
-$('#shopName').addEventListener('change', saveAll);
+$('#shopName').addEventListener('change', function(){ saveAll(); });
 
 /* ---------------- Tabs ---------------- */
 $$('.tab-btn').forEach(function(btn){
@@ -584,6 +762,7 @@ $$('.tab-btn').forEach(function(btn){
     $$('.tab-btn').forEach(function(b){ b.dataset.active = (b===btn)?'true':'false'; });
     $$('.tab-panel').forEach(function(p){ p.dataset.active = (p.dataset.tab===btn.dataset.tab)?'true':'false'; });
     if(btn.dataset.tab === 'dashboard') renderDashboard();
+    if(btn.dataset.tab === 'analysis') renderAnalysis();
   });
 });
 $('.tab-btn[data-tab="dashboard"]').dataset.active = 'true';
@@ -1363,6 +1542,8 @@ function renderStores(){
   });
   const withLastOrder = filtered.map(function(s){ return { store: s, lastOrder: storeActiveStockInfo(s.id) }; });
   withLastOrder.sort(function(a,b){
+    const ra = isRetailStore(a.store), rb = isRetailStore(b.store);
+    if(ra !== rb) return ra ? -1 : 1;
     if(!a.lastOrder && !b.lastOrder) return (a.store.name||'').localeCompare(b.store.name||'', 'th');
     if(!a.lastOrder) return 1;
     if(!b.lastOrder) return -1;
@@ -1381,7 +1562,7 @@ function renderStores(){
         '<div class="main-line"><span class="title">' + escapeHtml(s.name || 'ไม่ระบุชื่อ') + '</span>' +
         (s.contact ? '<span class="subtle">ผู้ติดต่อ: ' + escapeHtml(s.contact) + '</span>' : '') + '</div><div></div>' +
         '<div class="sub-line">' + (s.phone ? escapeHtml(s.phone) + ' · ' : '') + escapeHtml(s.address || 'ยังไม่มีที่อยู่') + '</div>' +
-        '<div class="sub-line">' + (lastOrder ? escapeHtml(lastOrder.text) + '<div style="margin-top:5px;">' + lastReceivedBadge(lastOrder.product, lastOrder.date) + '</div>' : 'ยังไม่มีประวัติการรับสินค้าเข้าสต๊อก') + '</div>';
+        (isRetailStore(s) ? '<div class="sub-line">ร้านพิเศษสำหรับบันทึกการขายปลีก — กดเพื่อดูประวัติการขายปลีก</div>' : '<div class="sub-line">' + (lastOrder ? escapeHtml(lastOrder.text) + '<div style="margin-top:5px;">' + lastReceivedBadge(lastOrder.product, lastOrder.date) + '</div>' : 'ยังไม่มีประวัติการรับสินค้าเข้าสต๊อก') + '</div>');
       row.addEventListener('click', function(){ openStoreDetail(s.id); });
       list.appendChild(row);
     });
@@ -1459,14 +1640,60 @@ function storesMapHtml(){
     '<div class="hint" style="margin-bottom:6px;">สีหมุด = ความสดใหม่ของสินค้าที่ยังไม่หมดในร้าน (นับจากวันรับเข้าล่าสุด)</div>' +
     legendHtml +
     (missing > 0 ? '<div class="hint" style="margin-bottom:10px;">มี ' + missing + ' ร้านที่ยังไม่มีพิกัด จะไม่แสดงบนแผนที่นี้ — เปิดแก้ไขร้านค้าแล้วกด "ค้นหาพิกัดจากที่อยู่อัตโนมัติ" เพื่อเพิ่ม</div>' : '') +
+    '<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;flex-wrap:wrap;">' +
+      '<span style="display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;color:var(--ink-soft);"><span style="width:12px;height:12px;border-radius:50%;background:#2563EB;border:2px solid #fff;box-shadow:0 0 0 2px #2563EB55;display:inline-block;"></span>ตำแหน่งของคุณ</span>' +
+      '<button type="button" class="ghost small" id="myLocBtn">📍 ไปยังตำแหน่งของฉัน</button>' +
+    '</div>' +
     '<div id="storesMapContainer" style="width:100%;height:58vh;border-radius:12px;overflow:hidden;"></div>' +
-    '<div class="hint" style="margin-top:8px;">กดที่หมุดเพื่อดูรายการสินค้าและจำนวนคงเหลือของร้านนั้น</div>';
+    '<div class="hint" style="margin-top:8px;" id="myLocHint">กดที่หมุดเพื่อดูรายการสินค้าและจำนวนคงเหลือของร้านนั้น</div>';
 }
 function openStoresMap(){
   if(!window.L){ toast('โหลดไลบรารีแผนที่ไม่สำเร็จ กรุณาตรวจสอบอินเทอร์เน็ตแล้วลองใหม่', 'error'); return; }
   openModal(storesMapHtml());
   $('[data-action="close"]').addEventListener('click', closeModal);
+  const locBtn = $('#myLocBtn');
+  if(locBtn) locBtn.addEventListener('click', function(){ locateMeOnStoresMap(true); });
   setTimeout(renderStoresLeafletMap, 60);
+}
+let myLocMarker = null, myLocCircle = null, myLocLatLng = null;
+function locateMeOnStoresMap(recenter){
+  const map = storesMapInstance;
+  if(!map) return;
+  if(!navigator.geolocation){ toast('เบราว์เซอร์นี้ไม่รองรับการระบุตำแหน่ง', 'error'); return; }
+  const hint = $('#myLocHint');
+  if(hint) hint.textContent = 'กำลังค้นหาตำแหน่งปัจจุบันของคุณ...';
+  navigator.geolocation.getCurrentPosition(function(pos){
+    if(storesMapInstance !== map) return;
+    const ll = [pos.coords.latitude, pos.coords.longitude];
+    myLocLatLng = ll;
+    if(myLocMarker){ map.removeLayer(myLocMarker); myLocMarker = null; }
+    if(myLocCircle){ map.removeLayer(myLocCircle); myLocCircle = null; }
+    const acc = pos.coords.accuracy || 0;
+    if(acc > 0) myLocCircle = L.circle(ll, { radius: acc, color:'#2563EB', weight:1, fillColor:'#2563EB', fillOpacity:0.1, interactive:false }).addTo(map);
+    myLocMarker = L.marker(ll, {
+      icon: L.divIcon({
+        html: '<div style="width:18px;height:18px;border-radius:50%;background:#2563EB;border:3px solid #fff;box-shadow:0 0 0 3px #2563EB66,0 2px 6px rgba(0,0,0,.4);"></div>',
+        className:'', iconSize:[18,18], iconAnchor:[9,9], popupAnchor:[0,-10]
+      }),
+      zIndexOffset: 1000
+    }).addTo(map);
+    myLocMarker.bindPopup('<b>ตำแหน่งของคุณ</b>');
+    if(hint) hint.textContent = 'กดที่หมุดเพื่อดูรายการสินค้าและจำนวนคงเหลือของร้านนั้น';
+    if(recenter){
+      map.setView(ll, Math.max(map.getZoom(), 15));
+      myLocMarker.openPopup();
+    } else {
+      const pts = [];
+      map.eachLayer(function(l){ if(l instanceof L.Marker && l !== myLocMarker) pts.push(l.getLatLng()); });
+      pts.push(L.latLng(ll[0], ll[1]));
+      if(pts.length > 1) map.fitBounds(L.latLngBounds(pts), { padding:[30,30] });
+      else map.setView(ll, 15);
+    }
+  }, function(err){
+    if(storesMapInstance !== map) return;
+    if(hint) hint.textContent = 'กดที่หมุดเพื่อดูรายการสินค้าและจำนวนคงเหลือของร้านนั้น';
+    toast(err && err.code === 1 ? 'ไม่ได้รับอนุญาตให้เข้าถึงตำแหน่ง — กรุณาอนุญาตในเบราว์เซอร์' : 'ไม่สามารถระบุตำแหน่งปัจจุบันได้', 'error');
+  }, { enableHighAccuracy:true, timeout:15000, maximumAge:30000 });
 }
 function coloredPinIcon(hexColor){
   const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 30 40">' +
@@ -1491,8 +1718,10 @@ function renderStoresLeafletMap(){
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors', maxZoom: 19
   }).addTo(map);
+  myLocMarker = null; myLocCircle = null;
   if(withCoords.length === 0){
     map.setView([13.7563, 100.5018], 6);
+    locateMeOnStoresMap(false);
     return;
   }
   const bounds = [];
@@ -1505,6 +1734,7 @@ function renderStoresLeafletMap(){
   });
   if(bounds.length === 1) map.setView(bounds[0], 15);
   else map.fitBounds(bounds, { padding: [30,30] });
+  locateMeOnStoresMap(false);
 }
 $('#showStoresMapBtn').addEventListener('click', openStoresMap);
 
@@ -1538,7 +1768,7 @@ function storeFormHtml(store){
       '<div class="field"><label>หมายเหตุ</label><textarea id="mStoreNote" placeholder="เงื่อนไขการชำระเงิน เครดิตเทอม หรือข้อมูลอื่น ๆ">' + escapeHtml(store ? (store.note||'') : '') + '</textarea></div>' +
       '<div class="form-actions">' +
         '<button type="submit" class="primary">' + (store ? 'บันทึกการแก้ไข' : 'บันทึกร้านค้า') + '</button>' +
-        (store ? '<button type="button" class="danger" data-action="delete-store" data-id="' + store.id + '">ลบร้านค้า</button>' : '') +
+        ((store && !isRetailStore(store)) ? '<button type="button" class="danger" data-action="delete-store" data-id="' + store.id + '">ลบร้านค้า</button>' : '') +
       '</div>' +
     '</form>';
 }
@@ -1617,6 +1847,8 @@ function openStoreForm(storeId){
   });
 }
 async function deleteStore(id){
+  const target = stores.filter(function(x){ return x.id === id; })[0];
+  if(isRetailStore(target)){ toast('ลบร้าน "ลูกค้าทั่วไป" ไม่ได้ เพราะใช้บันทึกการขายปลีก', 'error'); return; }
   if(!confirm('ต้องการลบร้านค้านี้ใช่หรือไม่? (รายการจัดส่งเดิมของร้านนี้จะยังคงอยู่)')) return;
   stores = stores.filter(function(s){ return s.id !== id; });
   await saveAll();
@@ -1692,6 +1924,19 @@ function storeDetailHtml(store){
     '</div>';
   }).join('') : '<div class="mini-row">ร้านนี้ยังไม่เคยรับสินค้าเข้าสต๊อก</div>';
 
+  const shipCostTotal = related.reduce(function(sum,sh){
+    const pr = products.filter(function(x){ return x.id===sh.productId; })[0];
+    return sum + (Number(sh.qty)||0) * (pr ? (Number(pr.costPrice)||0) : 0);
+  }, 0);
+  const isRetail = isRetailStore(store);
+  const retailSales = isRetail ? payments.filter(function(p){ return p.storeId===store.id && p.retailId; })
+    .sort(function(a,b){ return (b.createdAt||0) - (a.createdAt||0); }).slice(0, 30) : [];
+  const retailHtml = retailSales.length ? retailSales.map(function(p){
+    const pr = products.filter(function(x){ return x.id===p.productId; })[0];
+    return '<div class="mini-row" style="display:flex;justify-content:space-between;gap:8px;align-items:center;">' +
+      '<span><strong>' + escapeHtml(pr ? pr.name : 'สินค้า') + '</strong> × ' + (Number(p.qty)||0) + ' <span class="subtle">' + formatDate(p.date) + (p.note && p.note !== 'ขายปลีก' ? ' · ' + escapeHtml(p.note) : '') + '</span></span>' +
+      '<span style="white-space:nowrap;"><span class="mono">' + money(p.amount) + ' บ.</span> <button type="button" class="small danger" data-action="undo-retail" data-retail-id="' + p.retailId + '">ยกเลิก</button></span></div>';
+  }).join('') : '<div class="mini-row">ยังไม่มีรายการขายปลีก — กดปุ่ม "+ ขายปลีก" เพื่อเริ่มบันทึก</div>';
   const totalPaid = stockRows.reduce(function(sum,x){ return sum + (x.stats.totalPaid||0); }, 0);
   const totalBalanceDue = stockRows.reduce(function(sum,x){ return sum + (x.stats.balanceDue||0); }, 0);
 
@@ -1704,18 +1949,23 @@ function storeDetailHtml(store){
       '<div class="detail-item" style="grid-column:1/3;"><div class="l">ที่อยู่</div><div class="v">' + escapeHtml(store.address || '-') + '</div></div>' +
     '</div>' +
     (store.address ? '<iframe class="map-embed" loading="lazy" src="' + mapEmbedSrc(store.address) + '"></iframe>' : '') +
-    '<div class="info-box" style="margin-top:12px;"><strong>สรุป:</strong> รับสินค้าเข้าสต๊อกแล้ว ' + related.length + ' ครั้ง · มูลค่ารวม ' + money(revenue) + ' บาท</div>' +
+    '<div class="info-box" style="margin-top:12px;"><strong>สรุป:</strong> ' + (isRetail ? 'ขายปลีกแล้ว ' : 'รับสินค้าเข้าสต๊อกแล้ว ') + related.length + ' ครั้ง · มูลค่ารวม ' + money(revenue) + ' บาท</div>' +
     '<div class="detail-grid">' +
+      '<div class="detail-item"><div class="l">ต้นทุนรวมที่ส่ง</div><div class="v">' + money(shipCostTotal) + ' บาท</div></div>' +
+      '<div class="detail-item"><div class="l">กำไรขั้นต้นจากที่ส่ง</div><div class="v"' + (revenue - shipCostTotal < 0 ? ' style="color:var(--bad);"' : '') + '>' + money(revenue - shipCostTotal) + ' บาท</div></div>' +
       '<div class="detail-item"><div class="l">ยอดรวมชำระแล้ว</div><div class="v" style="color:var(--ok);">' + money(totalPaid) + ' บาท</div></div>' +
       '<div class="detail-item"><div class="l">ค้างชำระ</div><div class="v"' + (totalBalanceDue>0?' style="color:var(--wait);"':'') + '>' + money(totalBalanceDue) + ' บาท</div></div>' +
     '</div>' +
     '<div class="form-actions" style="margin-bottom:16px;">' +
       '<button type="button" class="ghost" data-action="edit-store">แก้ไขข้อมูลร้าน</button>' +
-      '<button type="button" class="danger" data-action="delete-store" data-id="' + store.id + '">ลบร้านค้า</button>' +
+      (isRetail ? '' : '<button type="button" class="danger" data-action="delete-store" data-id="' + store.id + '">ลบร้านค้า</button>') +
     '</div>' +
-    '<h4 style="margin:0 0 10px;font-size:0.92rem;">สต๊อกสินค้าที่ร้าน — กดดูเพื่อบันทึกชำระเงิน/คืนสินค้า</h4>' +
-    '<div style="margin-bottom:16px;">' + stockHtml + '</div>' +
-    '<button type="button" class="primary" data-action="open-picker" style="width:100%;">+ รับสินค้าเข้า</button>';
+    (isRetail
+      ? '<h4 style="margin:0 0 10px;font-size:0.92rem;">ประวัติการขายปลีก (30 รายการล่าสุด)</h4><div style="margin-bottom:16px;">' + retailHtml + '</div>' +
+        '<button type="button" class="primary" data-action="open-retail" style="width:100%;background:var(--ok);border-color:var(--ok);">+ ขายปลีก</button>'
+      : '<h4 style="margin:0 0 10px;font-size:0.92rem;">สต๊อกสินค้าที่ร้าน — กดดูเพื่อบันทึกชำระเงิน/คืนสินค้า</h4>' +
+        '<div style="margin-bottom:16px;">' + stockHtml + '</div>' +
+        '<button type="button" class="primary" data-action="open-picker" style="width:100%;">+ รับสินค้าเข้า</button>');
 }
 
 function productPickerHtml(store){
@@ -1774,7 +2024,13 @@ function openStoreDetail(storeId){
   $('[data-action="edit-store"]').addEventListener('click', function(){ openStoreForm(store.id); });
   const delBtn = document.querySelector('[data-action="delete-store"]');
   if(delBtn) delBtn.addEventListener('click', function(){ deleteStore(store.id); });
-  $('[data-action="open-picker"]').addEventListener('click', function(){ openProductPicker(store.id); });
+  const pickerBtn = document.querySelector('[data-action="open-picker"]');
+  if(pickerBtn) pickerBtn.addEventListener('click', function(){ openProductPicker(store.id); });
+  const retailBtn = document.querySelector('[data-action="open-retail"]');
+  if(retailBtn) retailBtn.addEventListener('click', function(){ openRetailSale(); });
+  $$('[data-action="undo-retail"]').forEach(function(btn){
+    btn.addEventListener('click', function(){ undoRetailSale(btn.dataset.retailId); });
+  });
   $$('[data-action="open-ledger"]').forEach(function(row){
     row.addEventListener('click', function(){ openStoreProductLedger(store.id, row.dataset.productId); });
   });
@@ -1782,6 +2038,113 @@ function openStoreDetail(storeId){
     btn.addEventListener('click', function(e){ e.stopPropagation(); deleteStoreStock(store.id, btn.dataset.productId); });
   });
 }
+
+/* ================= RETAIL SALE (ขายปลีก) ================= */
+let retailLines = [];
+function retailStore(){ return stores.filter(function(x){ return isRetailStore(x); })[0]; }
+function retailTotal(){ return retailLines.reduce(function(a,l){ return a + l.qty*l.price; }, 0); }
+function retailModalHtml(){
+  const opts = products.slice().sort(function(a,b){ return (Number(b.quantity)||0) - (Number(a.quantity)||0); }).map(function(p){
+    return '<option value="' + p.id + '">' + escapeHtml(p.name) + ' (คลัง ' + ((p.quantity==null)?0:p.quantity) + ' · ขาย ' + moneyDec(p.salePrice) + ')</option>';
+  }).join('');
+  return '' +
+    '<button type="button" class="modal-close" data-action="close">&times;</button>' +
+    '<h3 class="modal-title">ขายปลีก — ลูกค้าทั่วไป</h3>' +
+    '<div class="info-box">ตัดสต๊อกจากคลังทันที และบันทึกเป็นยอดชำระครบถ้วน (ใช้ราคาขายของสินค้า แก้ไขได้)</div>' +
+    '<div class="field"><label>สินค้า</label><select id="rtProduct"><option value="">— เลือกสินค้า —</option>' + opts + '</select></div>' +
+    '<div class="row2">' +
+      '<div class="field"><label>จำนวน</label><input type="number" id="rtQty" min="1" step="1" value="1"></div>' +
+      '<div class="field"><label>ราคาต่อหน่วย</label><input type="number" id="rtPrice" min="0" step="0.01" value="0"></div>' +
+    '</div>' +
+    '<div class="form-actions" style="margin:-4px 0 12px;"><button type="button" class="ghost" id="rtAddLine">+ เพิ่มรายการ</button></div>' +
+    '<div id="rtLines" style="margin-bottom:10px;"></div>' +
+    '<div class="info-box" id="rtTotal">ยอดรวม: <strong class="mono">0.00 บาท</strong></div>' +
+    '<div class="row2">' +
+      '<div class="field"><label>วันที่ขาย</label><input type="date" id="rtDate" value="' + todayStr() + '"></div>' +
+      '<div class="field"><label>หมายเหตุ / ชื่อลูกค้า</label><input type="text" id="rtNote" placeholder="ไม่บังคับ"></div>' +
+    '</div>' +
+    '<div class="form-actions"><button type="button" class="primary" id="rtSave" style="background:var(--ok);border-color:var(--ok);">บันทึกการขาย</button></div>';
+}
+function renderRetailLines(){
+  const box = $('#rtLines');
+  box.innerHTML = retailLines.length ? retailLines.map(function(l, i){
+    const pr = products.filter(function(x){ return x.id === l.productId; })[0];
+    return '<div class="mini-row" style="display:flex;justify-content:space-between;gap:8px;align-items:center;">' +
+      '<span><strong>' + escapeHtml(pr ? pr.name : 'สินค้า') + '</strong> × ' + l.qty + ' @ ' + moneyDec(l.price) + '</span>' +
+      '<span style="white-space:nowrap;"><span class="mono">' + moneyDec(l.qty*l.price) + '</span> <button type="button" class="small danger" data-rm="' + i + '">ลบ</button></span></div>';
+  }).join('') : '<div class="hint">ยังไม่มีรายการ — เลือกสินค้าแล้วกด "+ เพิ่มรายการ"</div>';
+  $('#rtTotal').innerHTML = 'ยอดรวม: <strong class="mono">' + moneyDec(retailTotal()) + ' บาท</strong>';
+  $$('#rtLines [data-rm]').forEach(function(b){
+    b.addEventListener('click', function(){ retailLines.splice(Number(b.dataset.rm), 1); renderRetailLines(); });
+  });
+}
+function openRetailSale(){
+  if(!products.length){ toast('ยังไม่มีสินค้าในระบบ', 'error'); return; }
+  ensureRetailStore();
+  retailLines = [];
+  openModal(retailModalHtml());
+  $('[data-action="close"]').addEventListener('click', closeModal);
+  $('#rtProduct').addEventListener('change', function(){
+    const pr = products.filter(function(x){ return x.id === $('#rtProduct').value; })[0];
+    $('#rtPrice').value = pr ? (Number(pr.salePrice)||0) : 0;
+  });
+  $('#rtAddLine').addEventListener('click', function(){
+    const pid = $('#rtProduct').value;
+    const qty = Number($('#rtQty').value) || 0;
+    const price = Number($('#rtPrice').value) || 0;
+    if(!pid){ toast('กรุณาเลือกสินค้า', 'error'); return; }
+    if(qty <= 0){ toast('กรุณาระบุจำนวน', 'error'); return; }
+    const pr = products.filter(function(x){ return x.id === pid; })[0];
+    const already = retailLines.filter(function(l){ return l.productId === pid; }).reduce(function(a,l){ return a + l.qty; }, 0);
+    if(pr && already + qty > (Number(pr.quantity)||0)){
+      if(!confirm('สต๊อกคลังของ "' + pr.name + '" มี ' + (Number(pr.quantity)||0) + ' ชิ้น แต่จะขาย ' + (already + qty) + ' ชิ้น ต้องการดำเนินการต่อหรือไม่? (สต๊อกจะติดลบ)')) return;
+    }
+    retailLines.push({ productId: pid, qty: qty, price: price });
+    $('#rtProduct').value = ''; $('#rtQty').value = 1; $('#rtPrice').value = 0;
+    renderRetailLines();
+  });
+  $('#rtSave').addEventListener('click', async function(){
+    if(!retailLines.length){ toast('กรุณาเพิ่มรายการสินค้าอย่างน้อย 1 รายการ', 'error'); return; }
+    const st = retailStore();
+    const date = $('#rtDate').value || todayStr();
+    const note = $('#rtNote').value.trim();
+    const now = Date.now();
+    retailLines.forEach(function(l, i){
+      const pr = products.filter(function(x){ return x.id === l.productId; })[0];
+      const rid = uid('rt');
+      const isSale = pr && Math.abs((Number(pr.salePrice)||0) - l.price) < 0.0001;
+      shipments.push({ id: uid('ship'), orderId:'', shipDate: date, storeId: st.id, productId: l.productId, qty: l.qty,
+        priceType: isSale ? 'retail' : 'custom', customPrice: isSale ? null : l.price, unitPrice: l.price,
+        note: 'ขายปลีก' + (note ? ' · ' + note : ''), retailId: rid, createdAt: now + i });
+      payments.push({ id: uid('pay'), storeId: st.id, productId: l.productId, amount: l.qty*l.price, qty: l.qty,
+        date: date, note: note || 'ขายปลีก', retailId: rid, createdAt: now + i });
+      if(pr) pr.quantity = (Number(pr.quantity)||0) - l.qty;
+    });
+    const total = retailTotal();
+    retailLines = [];
+    const ok = await saveAll();
+    renderAll();
+    closeModal();
+    toast((ok ? 'บันทึกการขายปลีกแล้ว ' : 'บันทึกในเครื่อง ') + 'ยอด ' + money(total) + ' บาท', ok ? 'ok' : 'error');
+  });
+  renderRetailLines();
+}
+async function undoRetailSale(retailId){
+  if(!confirm('ยกเลิกรายการขายปลีกนี้ใช่หรือไม่? สินค้าจะถูกคืนเข้าสต๊อกคลัง')) return;
+  shipments.filter(function(x){ return x.retailId === retailId; }).forEach(function(sh){
+    const pr = products.filter(function(x){ return x.id === sh.productId; })[0];
+    if(pr) pr.quantity = (Number(pr.quantity)||0) + (Number(sh.qty)||0);
+  });
+  shipments = shipments.filter(function(x){ return x.retailId !== retailId; });
+  payments = payments.filter(function(x){ return x.retailId !== retailId; });
+  await saveAll();
+  renderAll();
+  toast('ยกเลิกรายการขายปลีกแล้ว', 'ok');
+  const st = retailStore();
+  if(st) openStoreDetail(st.id);
+}
+$('#retailSaleBtn').addEventListener('click', openRetailSale);
+
 $('#storeSearch').addEventListener('input', function(e){ storeSearch = e.target.value; renderStores(); });
 
 /* ---- order popup (from store detail) ---- */
@@ -2526,6 +2889,7 @@ function computeOutOfStockAlerts(){
   const alerts = [];
   const today = new Date(); today.setHours(0,0,0,0);
   stores.forEach(function(store){
+    if(isRetailStore(store)) return;
     storeProductIds(store.id).forEach(function(pid){
       const product = products.filter(function(p){ return p.id===pid; })[0];
       if(!product) return;
@@ -2583,15 +2947,6 @@ $$('#periodPicker .period-btn').forEach(function(btn){
   });
 });
 $('#periodPicker .period-btn[data-period="weekly"]').dataset.active = 'true';
-
-/* ---------------- Reset all ---------------- */
-$('#resetAll').addEventListener('click', async function(){
-  if(!confirm('ต้องการล้างข้อมูลทั้งหมด (สินค้า ร้านค้า การจัดส่ง และค่าใช้จ่าย) ใช่หรือไม่? การกระทำนี้ไม่สามารถย้อนกลับได้')) return;
-  shipments = []; products = []; stores = []; returnsData = []; payments = []; expenses = []; materials = [];
-  await saveAll();
-  closeModal();
-  renderAll();
-});
 
 /* ================= EXPENSES TAB ================= */
 let expenseAnchorDate = null; // null = today
@@ -2837,10 +3192,594 @@ $('#expenseDateResetBtn').addEventListener('click', function(){
   renderExpenses();
 });
 
+/* ================= ANALYSIS TAB ================= */
+let anaRange = { from:'', to:'', preset:'all' };
+let anaSort = { key:'paid', dir:-1 };
+let anaChart = { mode:'month', year:new Date().getFullYear(), month:new Date().getMonth(), storeId:'' };
+
+function anaDateOf(x){
+  if(x && x.date){ const d = new Date(x.date + 'T00:00:00'); if(!isNaN(d)) return d; }
+  return new Date((x && x.createdAt) || Date.now());
+}
+function anaBounds(from, to){
+  return {
+    start: from ? new Date(from + 'T00:00:00') : new Date(1970,0,1),
+    end: to ? new Date(to + 'T23:59:59.999') : new Date(2999,0,1)
+  };
+}
+function anaIn(d, b){ return d >= b.start && d <= b.end; }
+function anaCostMap(){
+  const m = {};
+  products.forEach(function(p){ m[p.id] = Number(p.costPrice)||0; });
+  return m;
+}
+function anaPayCost(p, cm){ return (Number(p.qty)||0) * (cm[p.productId]||0); }
+function anaPct(n){ return (Math.round(n*10)/10).toLocaleString('th-TH') + '%'; }
+function anaFmtDays(n){ return n == null ? '-' : (Math.round(n*10)/10).toLocaleString('th-TH') + ' วัน'; }
+
+/* ---- range filter ---- */
+function setAnaRange(from, to, preset){
+  anaRange = { from: from||'', to: to||'', preset: preset||'custom' };
+  $('#anaFrom').value = anaRange.from;
+  $('#anaTo').value = anaRange.to;
+  $('#anaDay').value = (anaRange.from && anaRange.from === anaRange.to) ? anaRange.from : '';
+  $$('#anaPresets .filter-btn').forEach(function(b){ b.dataset.active = (b.dataset.preset === anaRange.preset) ? 'true' : 'false'; });
+  renderAnalysis();
+}
+function anaApplyPreset(preset){
+  const now = new Date();
+  if(preset === 'all') return setAnaRange('', '', 'all');
+  if(preset === 'today') return setAnaRange(todayStr(), todayStr(), 'today');
+  if(preset === 'month') return setAnaRange(dateToStr(new Date(now.getFullYear(), now.getMonth(), 1)), dateToStr(new Date(now.getFullYear(), now.getMonth()+1, 0)), 'month');
+  if(preset === 'year') return setAnaRange(now.getFullYear()+'-01-01', now.getFullYear()+'-12-31', 'year');
+}
+function anaPrevBounds(){
+  if(!anaRange.from || !anaRange.to) return null;
+  const f = new Date(anaRange.from + 'T00:00:00'), t = new Date(anaRange.to + 'T00:00:00');
+  if(anaRange.preset === 'month'){
+    return anaBounds(dateToStr(new Date(f.getFullYear(), f.getMonth()-1, 1)), dateToStr(new Date(f.getFullYear(), f.getMonth(), 0)));
+  }
+  if(anaRange.preset === 'year'){
+    return anaBounds((f.getFullYear()-1)+'-01-01', (f.getFullYear()-1)+'-12-31');
+  }
+  const n = Math.round((t - f)/86400000) + 1;
+  const pt = new Date(f); pt.setDate(pt.getDate()-1);
+  const pf = new Date(pt); pf.setDate(pf.getDate()-(n-1));
+  return anaBounds(dateToStr(pf), dateToStr(pt));
+}
+$$('#anaPresets .filter-btn').forEach(function(b){ b.addEventListener('click', function(){ anaApplyPreset(b.dataset.preset); }); });
+$('#anaDay').addEventListener('change', function(){ const v = $('#anaDay').value; if(v) setAnaRange(v, v, 'custom'); });
+$('#anaFrom').addEventListener('change', function(){ setAnaRange($('#anaFrom').value, $('#anaTo').value, 'custom'); });
+$('#anaTo').addEventListener('change', function(){ setAnaRange($('#anaFrom').value, $('#anaTo').value, 'custom'); });
+$$('.ana-nav button').forEach(function(b){
+  b.addEventListener('click', function(){
+    const el = document.getElementById(b.dataset.goto);
+    if(el) el.scrollIntoView({ behavior:'smooth', block:'start' });
+  });
+});
+
+/* ---- per-store statistics for a range ---- */
+function anaComputeStats(b){
+  const cm = anaCostMap();
+  return stores.map(function(st){
+    const recv = shipments.filter(function(s){ return s.storeId === st.id && anaIn(shipmentDate(s), b); });
+    const pays = payments.filter(function(p){ return p.storeId === st.id && anaIn(anaDateOf(p), b); });
+    const rets = returnsData.filter(function(r){ return r.storeId === st.id && anaIn(anaDateOf(r), b); });
+    const recvValue = recv.reduce(function(a,s){ return a + shipmentRevenue(s); }, 0);
+    const recvQty = recv.reduce(function(a,s){ return a + (Number(s.qty)||0); }, 0);
+    const shipCost = recv.reduce(function(a,s){ return a + (Number(s.qty)||0) * (cm[s.productId]||0); }, 0);
+    const paid = pays.reduce(function(a,p){ return a + (Number(p.amount)||0); }, 0);
+    const paidQty = pays.reduce(function(a,p){ return a + (Number(p.qty)||0); }, 0);
+    const cost = pays.reduce(function(a,p){ return a + anaPayCost(p, cm); }, 0);
+
+    // current balances / stock (not range based)
+    let balanceDue = 0, stockValue = 0, totalReceivedAll = 0;
+    storeProductIds(st.id).forEach(function(pid){
+      const sp = storeProductStats(st.id, pid);
+      balanceDue += sp.balanceDue;
+      totalReceivedAll += sp.totalValue;
+      stockValue += Math.max(0, sp.remaining) * sp.latestUnitPrice;
+    });
+
+    // return value in range
+    let returnValue = 0;
+    rets.forEach(function(r){
+      const sp = storeProductStats(st.id, r.productId);
+      returnValue += (Number(r.qty)||0) * sp.latestUnitPrice;
+    });
+
+    // average days from the latest receipt (on/before payment) to the payment
+    const dayList = [];
+    pays.forEach(function(p){
+      const pd = anaDateOf(p);
+      let best = null;
+      shipments.forEach(function(s){
+        if(s.storeId === st.id && s.productId === p.productId){
+          const sd = shipmentDate(s);
+          if(sd <= pd && (!best || sd > best)) best = sd;
+        }
+      });
+      if(best) dayList.push(Math.round((pd - best)/86400000));
+    });
+    const avgDays = dayList.length ? dayList.reduce(function(a,x){ return a + x; }, 0) / dayList.length : null;
+
+    // receiving frequency
+    const dateSet = {};
+    recv.forEach(function(s){ dateSet[dateToStr(shipmentDate(s))] = true; });
+    const dates = Object.keys(dateSet).sort();
+    let avgGap = null;
+    if(dates.length > 1){
+      const gaps = [];
+      for(let i=1;i<dates.length;i++){ gaps.push(Math.round((new Date(dates[i]) - new Date(dates[i-1]))/86400000)); }
+      avgGap = gaps.reduce(function(a,x){ return a + x; }, 0) / gaps.length;
+    }
+    const variety = {};
+    recv.forEach(function(s){ variety[s.productId] = true; });
+    pays.forEach(function(p){ variety[p.productId] = true; });
+
+    return {
+      store: st, recvValue: recvValue, recvQty: recvQty, shipCost: shipCost, paid: paid, paidQty: paidQty, cost: cost, profit: paid - cost,
+      marginPct: paid > 0 ? ((paid - cost)/paid)*100 : null,
+      balanceDue: balanceDue, stockValue: stockValue, totalReceivedAll: totalReceivedAll,
+      returnValue: returnValue, returnRate: recvValue > 0 ? returnValue/recvValue : null,
+      sellThrough: recvQty > 0 ? Math.min(1, paidQty/recvQty) : null,
+      avgDays: avgDays, receiveCount: dates.length, avgGap: avgGap, variety: Object.keys(variety).length,
+      active: (recv.length + pays.length + rets.length) > 0, payCount: pays.length
+    };
+  });
+}
+
+/* ---- Section 1 ---- */
+function anaDelta(cur, prev){
+  if(prev == null) return '';
+  if(prev === 0) return cur === 0 ? '' : '<span class="d up">▲ ใหม่ (ช่วงก่อนหน้า 0)</span>';
+  const pct = ((cur - prev)/Math.abs(prev))*100;
+  if(Math.abs(pct) < 0.05) return '<span class="d" style="color:var(--ink-faint)">เท่าช่วงก่อนหน้า</span>';
+  return '<span class="d ' + (pct > 0 ? 'up' : 'down') + '">' + (pct > 0 ? '▲ ' : '▼ ') + anaPct(Math.abs(pct)) + ' จากช่วงก่อนหน้า</span>';
+}
+function renderAnaSection1(rows){
+  const tot = rows.reduce(function(a,r){
+    a.recv += r.recvValue; a.shipCost += r.shipCost; a.paid += r.paid; a.cost += r.cost; a.balance += r.balanceDue; return a;
+  }, { recv:0, shipCost:0, paid:0, cost:0, balance:0 });
+  let prevPaid = null, prevCost = null;
+  const pb = anaPrevBounds();
+  if(pb){
+    const cm = anaCostMap();
+    const pp = payments.filter(function(p){ return anaIn(anaDateOf(p), pb); });
+    prevPaid = pp.reduce(function(a,p){ return a + (Number(p.amount)||0); }, 0);
+    prevCost = pp.reduce(function(a,p){ return a + anaPayCost(p, cm); }, 0);
+  }
+  const profit = tot.paid - tot.cost;
+  $('#anaStats').innerHTML =
+    '<div class="ana-stat"><span class="v">' + money(tot.paid) + '</span><span class="l">ยอดชำระรวม (บาท)</span>' + anaDelta(tot.paid, prevPaid) + '</div>' +
+    '<div class="ana-stat"><span class="v">' + money(tot.cost) + '</span><span class="l">ยอดรวมทุน (บาท)</span>' + anaDelta(tot.cost, prevCost) + '</div>' +
+    '<div class="ana-stat"><span class="v ' + (profit < 0 ? 'down' : '') + '">' + money(profit) + '</span><span class="l">กำไรขั้นต้น (บาท)' + (tot.paid > 0 ? ' · ' + anaPct((profit/tot.paid)*100) : '') + '</span>' + anaDelta(profit, prevPaid == null ? null : prevPaid - prevCost) + '</div>' +
+    '<div class="ana-stat"><span class="v">' + money(tot.balance) + '</span><span class="l">ค้างชำระ ณ ปัจจุบัน (บาท)</span></div>';
+
+  const cols = [
+    { key:'name', label:'ร้านค้า' },
+    { key:'recvValue', label:'ยอดรับสินค้า' },
+    { key:'shipCost', label:'ทุนส่งสินค้า' },
+    { key:'paid', label:'ยอดชำระ' },
+    { key:'cost', label:'ทุน' },
+    { key:'profit', label:'กำไรขั้นต้น' },
+    { key:'marginPct', label:'% กำไร' },
+    { key:'balanceDue', label:'ค้างชำระ' }
+  ];
+  const sorted = rows.slice().sort(function(a,b){
+    if(anaSort.key === 'name') return anaSort.dir * a.store.name.localeCompare(b.store.name, 'th');
+    const av = a[anaSort.key] == null ? -Infinity : a[anaSort.key];
+    const bv = b[anaSort.key] == null ? -Infinity : b[anaSort.key];
+    return anaSort.dir * (av - bv);
+  });
+  const arrow = function(k){ return anaSort.key === k ? (anaSort.dir < 0 ? ' ▼' : ' ▲') : ''; };
+  if(!rows.length){ $('#anaTable').innerHTML = '<tbody><tr><td style="text-align:center;color:var(--ink-faint);">ยังไม่มีร้านค้า</td></tr></tbody>'; return; }
+  $('#anaTable').innerHTML =
+    '<thead><tr>' + cols.map(function(c){ return '<th data-sort="' + c.key + '">' + c.label + arrow(c.key) + '</th>'; }).join('') + '</tr></thead>' +
+    '<tbody>' + sorted.map(function(r){
+      return '<tr><td title="' + escapeHtml(r.store.name) + '">' + escapeHtml(r.store.name) + '</td>' +
+        '<td>' + money(r.recvValue) + '</td><td>' + money(r.shipCost) + '</td><td>' + money(r.paid) + '</td><td>' + money(r.cost) + '</td>' +
+        '<td class="' + (r.profit < 0 ? 'down' : '') + '">' + money(r.profit) + '</td>' +
+        '<td>' + (r.marginPct == null ? '-' : anaPct(r.marginPct)) + '</td>' +
+        '<td class="' + (r.balanceDue > 0 ? 'down' : '') + '">' + money(r.balanceDue) + '</td></tr>';
+    }).join('') + '</tbody>' +
+    '<tfoot><tr><td>รวมทุกร้าน</td><td>' + money(tot.recv) + '</td><td>' + money(tot.shipCost) + '</td><td>' + money(tot.paid) + '</td><td>' + money(tot.cost) + '</td><td>' + money(profit) + '</td><td>' + (tot.paid > 0 ? anaPct((profit/tot.paid)*100) : '-') + '</td><td>' + money(tot.balance) + '</td></tr></tfoot>';
+  $$('#anaTable th').forEach(function(th){
+    th.addEventListener('click', function(){
+      const k = th.dataset.sort;
+      if(anaSort.key === k) anaSort.dir = -anaSort.dir; else { anaSort.key = k; anaSort.dir = (k === 'name') ? 1 : -1; }
+      renderAnaSection1(rows);
+    });
+  });
+}
+
+/* ---- Section 2 ---- */
+function anaChartBuckets(){
+  const out = [];
+  if(anaChart.mode === 'year'){
+    for(let y = anaChart.year-4; y <= anaChart.year; y++){
+      out.push({ label:String(y), title:String(y), start:new Date(y,0,1), end:new Date(y,11,31,23,59,59,999), y:y });
+    }
+  } else if(anaChart.mode === 'month'){
+    for(let m=0;m<12;m++){
+      out.push({ label:MONTHS_TH[m], title:MONTHS_TH[m] + ' ' + anaChart.year, start:new Date(anaChart.year,m,1), end:new Date(anaChart.year,m+1,0,23,59,59,999), y:anaChart.year, m:m });
+    }
+  } else {
+    const days = new Date(anaChart.year, anaChart.month+1, 0).getDate();
+    for(let d=1; d<=days; d++){
+      out.push({ label:String(d), title:d + ' ' + MONTHS_TH[anaChart.month] + ' ' + anaChart.year, start:new Date(anaChart.year,anaChart.month,d), end:new Date(anaChart.year,anaChart.month,d,23,59,59,999), y:anaChart.year, m:anaChart.month, d:d });
+    }
+  }
+  return out;
+}
+function renderAnaSection2(){
+  const sel = $('#anaChartStore');
+  const cur = anaChart.storeId;
+  sel.innerHTML = '<option value="">ทุกร้านรวมกัน</option>' + stores.slice().sort(function(a,b){ return a.name.localeCompare(b.name,'th'); }).map(function(s){
+    return '<option value="' + s.id + '"' + (s.id === cur ? ' selected' : '') + '>' + escapeHtml(s.name) + '</option>';
+  }).join('');
+  sel.onchange = function(){ anaChart.storeId = sel.value; renderAnaSection2(); };
+  $$('#anaModes .filter-btn').forEach(function(b){ b.dataset.active = (b.dataset.mode === anaChart.mode) ? 'true' : 'false'; });
+  $('#anaChartLabel').textContent = anaChart.mode === 'year' ? ((anaChart.year-4) + ' – ' + anaChart.year) : anaChart.mode === 'month' ? ('ปี ' + anaChart.year) : (MONTHS_TH[anaChart.month] + ' ' + anaChart.year);
+  $('#anaUp').style.display = anaChart.mode === 'year' ? 'none' : '';
+
+  const cm = anaCostMap();
+  const buckets = anaChartBuckets();
+  const pays = payments.filter(function(p){ return !anaChart.storeId || p.storeId === anaChart.storeId; });
+  const data = buckets.map(function(b){
+    let paid = 0, cost = 0;
+    pays.forEach(function(p){
+      const d = anaDateOf(p);
+      if(d >= b.start && d <= b.end){ paid += Number(p.amount)||0; cost += anaPayCost(p, cm); }
+    });
+    return { paid: paid, cost: cost };
+  });
+  const max = Math.max.apply(null, data.map(function(x){ return Math.max(x.paid, x.cost); }).concat([1]));
+  const showVal = anaChart.mode !== 'day';
+  $('#anaChart').innerHTML = buckets.map(function(b, i){
+    const x = data[i];
+    const h = Math.max(x.paid || x.cost ? 3 : 1, Math.round((Math.max(x.paid, x.cost)/max)*100));
+    const costPart = Math.min(x.cost, Math.max(x.paid, x.cost));
+    const costPct = Math.max(x.paid, x.cost) ? Math.round((costPart/Math.max(x.paid, x.cost))*100) : 0;
+    const profitPct = 100 - costPct;
+    return '<button type="button" class="ana-bar-col" data-i="' + i + '" title="' + escapeHtml(b.title) + ' — ชำระ ' + money(x.paid) + ' / ทุน ' + money(x.cost) + ' / กำไร ' + money(x.paid - x.cost) + '">' +
+      '<div class="val">' + (showVal && x.paid ? money(x.paid) : '') + '</div>' +
+      '<div class="stack" style="height:' + h + '%;">' +
+        (x.cost ? '<div style="height:' + costPct + '%;background:var(--accent);"></div>' : '') +
+        (profitPct > 0 && x.paid > x.cost ? '<div style="height:' + profitPct + '%;background:var(--primary);"></div>' : '') +
+      '</div><div class="lab">' + b.label + '</div></button>';
+  }).join('');
+  $$('#anaChart .ana-bar-col').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      const b = buckets[Number(btn.dataset.i)];
+      if(anaChart.mode === 'year'){ anaChart.mode = 'month'; anaChart.year = b.y; renderAnaSection2(); }
+      else if(anaChart.mode === 'month'){ anaChart.mode = 'day'; anaChart.year = b.y; anaChart.month = b.m; renderAnaSection2(); }
+      else { const ds = dateToStr(b.start); setAnaRange(ds, ds, 'custom'); toast('เลือกวันที่ ' + formatDate(ds) + ' แล้ว — ดูผลในส่วนที่ 1, 3 และรายการชำระด้านล่าง', 'ok'); }
+    });
+  });
+
+  const sums = data.reduce(function(a,x){ a.paid += x.paid; a.cost += x.cost; return a; }, { paid:0, cost:0 });
+  const best = data.reduce(function(bi, x, i){ return x.paid > (data[bi] ? data[bi].paid : -1) ? i : bi; }, 0);
+  $('#anaChartStats').innerHTML =
+    '<div class="ana-stat"><span class="v">' + money(sums.paid) + '</span><span class="l">ยอดชำระรวมในกราฟ</span></div>' +
+    '<div class="ana-stat"><span class="v">' + money(sums.cost) + '</span><span class="l">ทุนรวมในกราฟ</span></div>' +
+    '<div class="ana-stat"><span class="v ' + (sums.paid - sums.cost < 0 ? 'down' : '') + '">' + money(sums.paid - sums.cost) + '</span><span class="l">กำไรขั้นต้นรวม</span></div>' +
+    '<div class="ana-stat"><span class="v" style="font-size:0.95rem;">' + (sums.paid > 0 ? escapeHtml(buckets[best].title) : '-') + '</span><span class="l">ช่วงที่ยอดสูงสุด' + (sums.paid > 0 ? ' (' + money(data[best].paid) + ')' : '') + '</span></div>';
+
+  // payment list within global range
+  const b = anaBounds(anaRange.from, anaRange.to);
+  const list = payments.filter(function(p){
+    return anaIn(anaDateOf(p), b) && (!anaChart.storeId || p.storeId === anaChart.storeId);
+  }).sort(function(x,y){ return anaDateOf(y) - anaDateOf(x); });
+  const shown = list.slice(0, 60);
+  $('#anaPayList').innerHTML = list.length ? (
+    '<div class="hint" style="margin-bottom:8px;">ทั้งหมด ' + list.length + ' รายการ' + (list.length > shown.length ? ' (แสดง 60 รายการล่าสุด)' : '') + '</div>' +
+    '<div class="list-wrap">' + shown.map(function(p){
+      const st = stores.filter(function(s){ return s.id === p.storeId; })[0];
+      const pr = products.filter(function(x){ return x.id === p.productId; })[0];
+      const cost = anaPayCost(p, cm);
+      return '<div class="mini-row" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">' +
+        '<span><strong>' + escapeHtml(st ? st.name : 'ไม่ระบุร้าน') + '</strong> · ' + escapeHtml(pr ? pr.name : 'ไม่ระบุสินค้า') + ' × ' + (Number(p.qty)||0) + ' <span class="subtle">' + formatDate(dateToStr(anaDateOf(p))) + '</span></span>' +
+        '<span class="mono">ชำระ ' + money(p.amount) + ' · ทุน ' + money(cost) + '</span></div>';
+    }).join('') + '</div>'
+  ) : '<div class="mini-row">ไม่มีรายการชำระในช่วงที่เลือก</div>';
+}
+$$('#anaModes .filter-btn').forEach(function(b){
+  b.addEventListener('click', function(){
+    const now = new Date();
+    anaChart.mode = b.dataset.mode;
+    anaChart.year = now.getFullYear(); anaChart.month = now.getMonth();
+    renderAnaSection2();
+  });
+});
+$('#anaPrev').addEventListener('click', function(){
+  if(anaChart.mode === 'year') anaChart.year -= 5;
+  else if(anaChart.mode === 'month') anaChart.year -= 1;
+  else { anaChart.month -= 1; if(anaChart.month < 0){ anaChart.month = 11; anaChart.year -= 1; } }
+  renderAnaSection2();
+});
+$('#anaNext').addEventListener('click', function(){
+  if(anaChart.mode === 'year') anaChart.year += 5;
+  else if(anaChart.mode === 'month') anaChart.year += 1;
+  else { anaChart.month += 1; if(anaChart.month > 11){ anaChart.month = 0; anaChart.year += 1; } }
+  renderAnaSection2();
+});
+$('#anaUp').addEventListener('click', function(){
+  if(anaChart.mode === 'day') anaChart.mode = 'month';
+  else if(anaChart.mode === 'month') anaChart.mode = 'year';
+  renderAnaSection2();
+});
+
+/* ---- Section 3 ---- */
+function anaMonthPaid(storeId, offset){
+  const now = new Date();
+  const s = new Date(now.getFullYear(), now.getMonth()+offset, 1);
+  const e = new Date(now.getFullYear(), now.getMonth()+offset+1, 0, 23,59,59,999);
+  return payments.filter(function(p){ return p.storeId === storeId && anaIn(anaDateOf(p), { start:s, end:e }); })
+    .reduce(function(a,p){ return a + (Number(p.amount)||0); }, 0);
+}
+const ANA_GROUPS = {
+  star: { label:'ดาวเด่น', color:'#0F9D68', bg:'#DFF5EA' },
+  normal: { label:'ปกติ', color:'#4338CA', bg:'#EEECFC' },
+  slow: { label:'ซบเซา', color:'#B5811A', bg:'#FCF0D6' },
+  risk: { label:'เสี่ยง', color:'#DC2626', bg:'#FBE1E1' }
+};
+function renderAnaSection3(rows){
+  const act = rows.filter(function(r){ return r.active && !isRetailStore(r.store); });
+  if(!act.length){
+    $('#anaGroups').innerHTML = '';
+    $('#anaRank').innerHTML = '<div class="mini-row">ยังไม่มีความเคลื่อนไหวของร้านค้าในช่วงที่เลือก (ไม่นับ "ลูกค้าทั่วไป")</div>';
+    $('#anaScatter').innerHTML = ''; $('#anaHeat').innerHTML = ''; $('#anaScoreNote').textContent = '';
+    return;
+  }
+  const maxOf = function(k){ return Math.max.apply(null, act.map(function(r){ return r[k] == null ? 0 : r[k]; }).concat([0])); };
+  const maxPaid = maxOf('paid'), maxCount = maxOf('receiveCount'), maxVar = maxOf('variety'), maxMargin = Math.max(maxOf('marginPct'), 1);
+  const daysList = act.filter(function(r){ return r.avgDays != null; }).map(function(r){ return Math.max(r.avgDays, 1); });
+  const minDays = daysList.length ? Math.min.apply(null, daysList) : null;
+
+  act.forEach(function(r){
+    const parts = {
+      paid: maxPaid ? (r.paid/maxPaid) : 0,
+      sell: r.sellThrough == null ? 0 : r.sellThrough,
+      speed: (r.avgDays == null || minDays == null) ? 0 : (minDays/Math.max(r.avgDays,1)),
+      freq: maxCount ? (r.receiveCount/maxCount) : 0,
+      ret: r.returnRate == null ? 1 : Math.max(0, 1 - Math.min(1, r.returnRate)),
+      margin: r.marginPct == null ? 0 : Math.max(0, Math.min(1, r.marginPct/maxMargin)),
+      variety: maxVar ? (r.variety/maxVar) : 0
+    };
+    r.score = Math.round(parts.paid*30 + parts.sell*20 + parts.speed*15 + parts.freq*10 + parts.ret*10 + parts.margin*10 + parts.variety*5);
+    const m0 = anaMonthPaid(r.store.id, 0), m1 = anaMonthPaid(r.store.id, -1), m2 = anaMonthPaid(r.store.id, -2);
+    const declining = m2 > m1 && m1 > m0;
+    const risky = r.balanceDue > 0 && ((r.totalReceivedAll > 0 && r.balanceDue/r.totalReceivedAll >= 0.5) || (r.avgDays != null && r.avgDays > 45));
+    r.group = risky ? 'risk' : declining ? 'slow' : r.score >= 60 ? 'star' : 'normal';
+  });
+  act.sort(function(a,b){ return b.score - a.score; });
+
+  const pick = function(fn){ let best = null; act.forEach(function(r){ const v = fn(r); if(v != null && (best == null || v.val > best.val)) best = { r:r, val:v.val }; }); return best ? best.r : null; };
+  const bestPaid = pick(function(r){ return r.paid > 0 ? { val:r.paid } : null; });
+  const bestFast = act.length > 1 ? pick(function(r){ return r.avgDays != null ? { val:-r.avgDays } : null; }) : null;
+  const bestRet = act.length > 1 ? pick(function(r){ return (r.returnRate != null && r.recvValue > 0) ? { val:-r.returnRate } : null; }) : null;
+  const bestMargin = act.length > 1 ? pick(function(r){ return r.marginPct != null ? { val:r.marginPct } : null; }) : null;
+
+  const counts = { star:0, normal:0, slow:0, risk:0 };
+  act.forEach(function(r){ counts[r.group]++; });
+  $('#anaGroups').innerHTML = Object.keys(ANA_GROUPS).map(function(k){
+    const g = ANA_GROUPS[k];
+    return '<span class="ana-grp" style="background:' + g.bg + ';color:' + g.color + ';">' + g.label + ' ' + counts[k] + ' ร้าน</span>';
+  }).join('');
+
+  $('#anaRank').innerHTML = act.map(function(r, i){
+    const g = ANA_GROUPS[r.group];
+    const tags = [];
+    tags.push('<span class="ana-grp" style="background:' + g.bg + ';color:' + g.color + ';padding:2px 9px;font-size:0.7rem;">' + g.label + '</span>');
+    if(r === bestPaid) tags.push('<span class="tag">ยอดชำระสูงสุด</span>');
+    if(r === bestFast) tags.push('<span class="tag">ชำระไวที่สุด</span>');
+    if(r === bestRet) tags.push('<span class="tag">คืนน้อยที่สุด</span>');
+    if(r === bestMargin) tags.push('<span class="tag">% กำไรสูงสุด</span>');
+    return '<details class="ana-rank"><summary>' +
+      '<span class="pos">' + (i+1) + '</span>' +
+      '<span><span class="nm">' + escapeHtml(r.store.name) + '</span>' +
+        '<div class="bar-track" style="margin-top:6px;"><div class="bar-fill" style="width:' + r.score + '%;background:' + g.color + ';"></div></div></span>' +
+      '<span class="sc" style="color:' + g.color + ';">' + r.score + '<span style="font-size:0.7rem;color:var(--ink-faint);font-weight:600;">/100</span></span>' +
+      '<span class="tags">' + tags.join('') + '</span></summary>' +
+      '<div class="metrics">' +
+        '<div>ยอดชำระ<b>' + money(r.paid) + ' บ.</b></div>' +
+        '<div>กำไรขั้นต้น<b>' + money(r.profit) + ' บ.' + (r.marginPct == null ? '' : ' (' + anaPct(r.marginPct) + ')') + '</b></div>' +
+        '<div>อัตราขายออก<b>' + (r.sellThrough == null ? '-' : anaPct(r.sellThrough*100)) + '</b></div>' +
+        '<div>วันเฉลี่ยจากรับสินค้าถึงชำระ<b>' + anaFmtDays(r.avgDays) + '</b></div>' +
+        '<div>รับสินค้า<b>' + r.receiveCount + ' ครั้ง' + (r.avgGap == null ? '' : ' (ห่างเฉลี่ย ' + anaFmtDays(r.avgGap) + ')') + '</b></div>' +
+        '<div>อัตราคืนสินค้า<b>' + (r.returnRate == null ? '-' : anaPct(r.returnRate*100)) + '</b></div>' +
+        '<div>มูลค่าสินค้าค้างในร้าน<b>' + money(r.stockValue) + ' บ.</b></div>' +
+        '<div>ค้างชำระ<b>' + money(r.balanceDue) + ' บ.</b></div>' +
+        '<div>จำนวนสินค้าที่เกี่ยวข้อง<b>' + r.variety + ' รายการ</b></div>' +
+      '</div></details>';
+  }).join('');
+
+  // scatter
+  const W = 360, H = 240, L = 40, B = 28, T = 12, R = 14;
+  const iw = W - L - R, ih = H - T - B;
+  const px = function(v){ return L + (maxPaid ? (v/maxPaid) : 0) * iw; };
+  const py = function(v){ return T + (1 - v) * ih; };
+  let svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;max-width:560px;height:auto;display:block;">' +
+    '<rect x="' + L + '" y="' + T + '" width="' + iw + '" height="' + ih + '" fill="#F8F9FC" stroke="#E6E7F0"/>' +
+    '<line x1="' + (L + iw/2) + '" y1="' + T + '" x2="' + (L + iw/2) + '" y2="' + (T + ih) + '" stroke="#D5D7E3" stroke-dasharray="3 3"/>' +
+    '<line x1="' + L + '" y1="' + (T + ih/2) + '" x2="' + (L + iw) + '" y2="' + (T + ih/2) + '" stroke="#D5D7E3" stroke-dasharray="3 3"/>' +
+    '<text x="' + (L + iw - 4) + '" y="' + (T + 12) + '" font-size="9" text-anchor="end" fill="#0F9D68">ดีที่สุด</text>' +
+    '<text x="' + (L + 4) + '" y="' + (T + ih - 5) + '" font-size="9" fill="#9A9DB0">ควรทบทวน</text>' +
+    '<text x="' + (L + iw/2) + '" y="' + (H - 6) + '" font-size="9" text-anchor="middle" fill="#696D82">ยอดชำระ (บาท) · สูงสุด ' + money(maxPaid) + '</text>' +
+    '<text x="10" y="' + (T + ih/2) + '" font-size="9" text-anchor="middle" fill="#696D82" transform="rotate(-90 10 ' + (T + ih/2) + ')">อัตราขายออก</text>' +
+    '<text x="' + (L - 4) + '" y="' + (T + 8) + '" font-size="8" text-anchor="end" fill="#9A9DB0">100%</text>' +
+    '<text x="' + (L - 4) + '" y="' + (T + ih) + '" font-size="8" text-anchor="end" fill="#9A9DB0">0%</text>';
+  act.forEach(function(r){
+    const g = ANA_GROUPS[r.group];
+    const cx = px(r.paid), cy = py(r.sellThrough == null ? 0 : r.sellThrough);
+    const nm = r.store.name.length > 9 ? r.store.name.slice(0,9) + '…' : r.store.name;
+    const anchor = cx > L + iw*0.75 ? 'end' : 'start';
+    svg += '<g><title>' + escapeHtml(r.store.name) + ' — ชำระ ' + money(r.paid) + ' บ. · ขายออก ' + (r.sellThrough == null ? '-' : anaPct(r.sellThrough*100)) + '</title>' +
+      '<circle cx="' + cx.toFixed(1) + '" cy="' + cy.toFixed(1) + '" r="6" fill="' + g.color + '" fill-opacity="0.85" stroke="#fff" stroke-width="1.5"/>' +
+      '<text x="' + (cx + (anchor === 'end' ? -9 : 9)).toFixed(1) + '" y="' + (cy + 3).toFixed(1) + '" font-size="9" text-anchor="' + anchor + '" fill="#191B29">' + escapeHtml(nm) + '</text></g>';
+  });
+  svg += '</svg><div class="ana-legend">' + Object.keys(ANA_GROUPS).map(function(k){ return '<span><i style="background:' + ANA_GROUPS[k].color + '"></i>' + ANA_GROUPS[k].label + '</span>'; }).join('') + '</div>';
+  $('#anaScatter').innerHTML = svg;
+
+  // heatmap store x product (paid qty in range)
+  const bnd = anaBounds(anaRange.from, anaRange.to);
+  const pq = {}; const prodTot = {};
+  payments.forEach(function(p){
+    if(!anaIn(anaDateOf(p), bnd)) return;
+    const q = Number(p.qty)||0;
+    pq[p.storeId] = pq[p.storeId] || {};
+    pq[p.storeId][p.productId] = (pq[p.storeId][p.productId]||0) + q;
+    prodTot[p.productId] = (prodTot[p.productId]||0) + q;
+  });
+  const prodIds = Object.keys(prodTot).sort(function(a,b){ return prodTot[b] - prodTot[a]; }).slice(0, 10);
+  const heatStores = act.filter(function(r){ return pq[r.store.id]; }).slice(0, 15);
+  if(!prodIds.length || !heatStores.length){
+    $('#anaHeat').innerHTML = '<div class="mini-row">ยังไม่มีข้อมูลการชำระในช่วงที่เลือก</div>';
+  } else {
+    let maxCell = 1;
+    heatStores.forEach(function(r){ prodIds.forEach(function(pid){ maxCell = Math.max(maxCell, (pq[r.store.id][pid]||0)); }); });
+    $('#anaHeat').innerHTML = '<table class="ana-heat"><thead><tr><th></th>' + prodIds.map(function(pid){
+      const pr = products.filter(function(x){ return x.id === pid; })[0];
+      return '<th title="' + escapeHtml(pr ? pr.name : '') + '">' + escapeHtml(pr ? pr.name : '?') + '</th>';
+    }).join('') + '</tr></thead><tbody>' + heatStores.map(function(r){
+      return '<tr><td>' + escapeHtml(r.store.name) + '</td>' + prodIds.map(function(pid){
+        const q = pq[r.store.id][pid] || 0;
+        const a = q ? (0.12 + 0.78*(q/maxCell)) : 0;
+        return '<td style="background:' + (q ? 'rgba(67,56,202,' + a.toFixed(2) + ')' : '#F5F6FA') + ';color:' + (a > 0.5 ? '#fff' : '#191B29') + ';">' + (q || '') + '</td>';
+      }).join('') + '</tr>';
+    }).join('') + '</tbody></table>';
+  }
+
+  $('#anaScoreNote').innerHTML = 'คะแนนรวม 100 = ยอดชำระ 30 + อัตราขายออก 20 + ความเร็วชำระ 15 + ความถี่รับสินค้า 10 + คืนสินค้าน้อย 10 + % กำไร 10 + ความหลากหลายสินค้า 5 (เทียบกับร้านอื่นในช่วงเดียวกัน)<br>' +
+    'กลุ่ม: <b>เสี่ยง</b> = ค้างชำระ ≥ 50% ของยอดรับทั้งหมด หรือชำระช้าเฉลี่ยเกิน 45 วัน · <b>ซบเซา</b> = ยอดชำระลดลง 2 เดือนติด · <b>ดาวเด่น</b> = คะแนน ≥ 60 · อัตราขายออก = จำนวนที่ชำระ ÷ จำนวนที่รับเข้าในช่วงเวลา (สูงสุด 100%) · ไม่นับร้าน "ลูกค้าทั่วไป" (ขายปลีก) ในการจัดอันดับ';
+}
+
+function renderAnalysis(){
+  if(!$('#anaStats')) return;
+  const b = anaBounds(anaRange.from, anaRange.to);
+  $('#anaRangeText').textContent = (anaRange.from || anaRange.to)
+    ? 'กำลังดูช่วง: ' + (anaRange.from ? formatDate(anaRange.from) : 'เริ่มต้น') + ' ถึง ' + (anaRange.to ? formatDate(anaRange.to) : 'ปัจจุบัน')
+    : 'กำลังดูข้อมูลทั้งหมดทุกช่วงเวลา';
+  const rows = anaComputeStats(b);
+  renderAnaSection1(rows);
+  renderAnaSection2();
+  renderAnaSection3(rows);
+}
+$$('#anaPresets .filter-btn[data-preset="all"]')[0].dataset.active = 'true';
+
+/* ================= BACKUP / IMPORT ================= */
+const BACKUP_LS_LAST = 'pumshop_lastBackup';
+const BACKUP_LS_AUTO = 'pumshop_autoCopy';
+function lsGet(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+function lsSet(k, v){ try{ localStorage.setItem(k, v); }catch(e){} }
+function backupPayload(){
+  return {
+    app: 'pumshop', version: 1, exportedAt: new Date().toISOString(),
+    shopName: $('#shopName').value.trim() || 'ร้านค้าของฉัน',
+    data: { shipments: shipments, products: products, stores: stores, returnsData: returnsData, payments: payments, expenses: expenses, materials: materials }
+  };
+}
+function backupSummary(d){
+  return 'สินค้า ' + (d.products||[]).length + ' · ร้านค้า ' + (d.stores||[]).length + ' · รับสินค้า ' + (d.shipments||[]).length +
+    ' · ชำระเงิน ' + (d.payments||[]).length + ' · ค่าใช้จ่าย ' + (d.expenses||[]).length + ' · วัตถุดิบ ' + (d.materials||[]).length;
+}
+function updateBackupInfo(){
+  const el = $('#backupInfo'); if(!el) return;
+  const last = lsGet(BACKUP_LS_LAST);
+  if(!last){ el.textContent = 'ยังไม่เคยสำรองข้อมูลจากเครื่องนี้'; el.style.color = 'var(--bad)'; return; }
+  const days = Math.floor((Date.now() - Number(last)) / 86400000);
+  el.textContent = 'สำรองล่าสุด ' + (days <= 0 ? 'วันนี้' : days + ' วันก่อน');
+  el.style.color = days > 7 ? 'var(--bad)' : 'var(--ink-faint)';
+}
+function downloadBackup(){
+  const payload = backupPayload();
+  const blob = new Blob([JSON.stringify(payload)], { type:'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'pumshop-backup-' + todayStr() + '.json';
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+  lsSet(BACKUP_LS_LAST, String(Date.now()));
+  updateBackupInfo();
+  toast('ดาวน์โหลดไฟล์สำรองข้อมูลแล้ว (' + backupSummary(payload.data) + ')', 'ok');
+}
+function localAutoCopy(){
+  const raw = lsGet(BACKUP_LS_AUTO);
+  if(!raw) return null;
+  try{ return JSON.parse(raw); }catch(e){ return null; }
+}
+function saveAutoCopy(d){
+  if(!d || countData(d) === 0) return;
+  lsSet(BACKUP_LS_AUTO, JSON.stringify({ savedAt: Date.now(), data: {
+    shipments: d.shipments||[], products: d.products||[], stores: d.stores||[], returnsData: d.returnsData||[],
+    payments: d.payments||[], expenses: d.expenses||[], materials: d.materials||[] } }));
+}
+async function applyImportedData(data, label){
+  const d = data || {};
+  const arr = function(x){ return Array.isArray(x) ? x : []; };
+  if(!confirm('นำเข้าข้อมูลจาก' + label + '\n' + backupSummary(d) + '\n\nข้อมูลปัจจุบันทั้งหมดจะถูกแทนที่ ต้องการดำเนินการต่อหรือไม่?')) return;
+  shipments = arr(d.shipments); products = arr(d.products); stores = arr(d.stores);
+  returnsData = arr(d.returnsData); payments = arr(d.payments); expenses = arr(d.expenses); materials = arr(d.materials);
+  ensureRetailStore();
+  const ok = await saveAll(true);
+  renderAll();
+  closeModal();
+  toast(ok ? 'นำเข้าข้อมูลเรียบร้อยแล้ว' : 'นำเข้าในเครื่องแล้ว แต่บันทึกขึ้นฐานข้อมูลไม่สำเร็จ', ok ? 'ok' : 'error');
+}
+function openBackupModal(){
+  const auto = localAutoCopy();
+  const last = lsGet(BACKUP_LS_LAST);
+  openModal(
+    '<button type="button" class="modal-close" data-action="close">&times;</button>' +
+    '<h3 class="modal-title">สำรองและนำเข้าข้อมูล</h3>' +
+    '<div class="info-box">ข้อมูลปัจจุบัน: ' + backupSummary({ shipments:shipments, products:products, stores:stores, payments:payments, expenses:expenses, materials:materials }) + '<br>' +
+      (last ? 'ดาวน์โหลดไฟล์สำรองล่าสุด: ' + new Date(Number(last)).toLocaleString('th-TH') : 'ยังไม่เคยดาวน์โหลดไฟล์สำรอง') + '</div>' +
+    '<div class="form-actions" style="flex-direction:column;align-items:stretch;">' +
+      '<button type="button" class="primary" id="bkDownload">ดาวน์โหลดไฟล์สำรอง (.json)</button>' +
+      '<button type="button" class="ghost" id="bkImport">นำเข้าจากไฟล์สำรอง</button>' +
+      '<input type="file" id="bkFile" accept=".json,application/json" style="display:none;">' +
+      (auto ? '<button type="button" class="ghost" id="bkLocal">กู้คืนจากสำเนาในเครื่องนี้ (' + new Date(auto.savedAt).toLocaleString('th-TH') + ')</button>' : '') +
+    '</div>' +
+    '<div class="hint" style="margin-top:12px;">แนะนำให้ดาวน์โหลดไฟล์สำรองเป็นประจำ (เช่น สัปดาห์ละครั้ง) และเก็บไว้ในที่ปลอดภัย เช่น Google Drive หรือส่งเข้า LINE ตัวเอง</div>'
+  );
+  $('[data-action="close"]').addEventListener('click', closeModal);
+  $('#bkDownload').addEventListener('click', downloadBackup);
+  $('#bkImport').addEventListener('click', function(){ $('#bkFile').click(); });
+  $('#bkFile').addEventListener('change', function(e){
+    const f = e.target.files && e.target.files[0];
+    if(!f) return;
+    const reader = new FileReader();
+    reader.onload = function(){
+      let obj = null;
+      try{ obj = JSON.parse(reader.result); }catch(err){ toast('ไฟล์ไม่ถูกต้อง (อ่านเป็น JSON ไม่ได้)', 'error'); return; }
+      const data = obj && obj.data ? obj.data : obj;
+      if(!data || typeof data !== 'object' || !(Array.isArray(data.products) || Array.isArray(data.stores) || Array.isArray(data.shipments))){
+        toast('ไฟล์นี้ไม่ใช่ไฟล์สำรองของระบบนี้', 'error'); return;
+      }
+      applyImportedData(data, 'ไฟล์ ' + f.name);
+    };
+    reader.readAsText(f);
+  });
+  const lb = $('#bkLocal');
+  if(lb) lb.addEventListener('click', function(){ applyImportedData(auto.data, 'สำเนาในเครื่องนี้'); });
+}
+$('#backupBtn').addEventListener('click', openBackupModal);
+
 function renderAll(){
   renderProducts();
   renderMaterials();
   renderStores();
   renderShipments();
   renderDashboard();
-  renderEx
+  renderExpenses();
+  renderStatusView();
+  renderAlerts();
+  renderAnalysis();
+  updateBackupInfo();
+}
+
+loadAll();
+</script>
+</body>
+</html>
