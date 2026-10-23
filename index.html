@@ -503,6 +503,16 @@ footer button{background:none;border:none;color:var(--ink-faint);text-decoration
     <div class="toolbar">
       <input type="text" id="storeSearch" placeholder="ค้นหาชื่อร้านค้า ผู้ติดต่อ เบอร์โทร...">
       <div class="spacer"></div>
+      <button type="button" class="ghost" id="nearMeBtn">📍 ใกล้ฉัน</button>
+      <select id="nearRadius" class="hidden" title="ระยะทาง">
+        <option value="0">ทุกระยะ (เรียงใกล้→ไกล)</option>
+        <option value="1">ภายใน 1 กม.</option>
+        <option value="3">ภายใน 3 กม.</option>
+        <option value="5">ภายใน 5 กม.</option>
+        <option value="10">ภายใน 10 กม.</option>
+        <option value="20">ภายใน 20 กม.</option>
+        <option value="50">ภายใน 50 กม.</option>
+      </select>
       <button type="button" class="ghost" id="showStoresMapBtn">แผนที่ร้านค้า</button>
       <button type="button" class="primary" id="retailSaleBtn" style="background:var(--ok);border-color:var(--ok);">ขายปลีก</button>
       <button type="button" class="ghost" id="showHistoryBtn">ประวัติ</button>
@@ -1535,6 +1545,81 @@ function storeActiveStockInfo(storeId){
   return best;
 }
 
+/* ---- nearby filter ---- */
+let nearMe = { on:false, lat:null, lng:null, radius:0, road:{}, status:'idle' };
+function distanceKm(lat1, lng1, lat2, lng2){
+  const R = 6371, rad = Math.PI/180;
+  const dLat = (lat2-lat1)*rad, dLng = (lng2-lng1)*rad;
+  const a = Math.sin(dLat/2)*Math.sin(dLat/2) + Math.cos(lat1*rad)*Math.cos(lat2*rad)*Math.sin(dLng/2)*Math.sin(dLng/2);
+  return 2*R*Math.asin(Math.sqrt(a));
+}
+function formatKm(km){
+  if(km < 1) return Math.round(km*1000) + ' ม.';
+  return (Math.round(km*10)/10).toLocaleString('th-TH') + ' กม.';
+}
+function storeHasCoords(s){ return s.lat!=null && s.lng!=null && !isNaN(s.lat) && !isNaN(s.lng); }
+/* real road distance via OSRM public routing server (no API key) */
+let nearFetchToken = 0;
+async function fetchRoadDistances(){
+  if(!nearMe.on || nearMe.lat == null) return;
+  const myKey = nearMe.lat.toFixed(3) + ',' + nearMe.lng.toFixed(3);
+  const rad = nearMe.radius;
+  let cands = stores.filter(storeHasCoords).map(function(st){
+    return { st: st, straight: distanceKm(nearMe.lat, nearMe.lng, Number(st.lat), Number(st.lng)) };
+  }).filter(function(c){ return rad <= 0 || c.straight <= rad; })
+    .sort(function(a,b){ return a.straight - b.straight; }).slice(0, 200);
+  cands = cands.filter(function(c){ return !nearMe.road[myKey + '|' + c.st.id + '|' + c.st.lat + ',' + c.st.lng]; });
+  if(!cands.length){ nearMe.status = 'done'; renderStores(); return; }
+  const token = ++nearFetchToken;
+  nearMe.status = 'loading'; renderStores();
+  try{
+    for(let i = 0; i < cands.length; i += 90){
+      const chunk = cands.slice(i, i + 90);
+      const coords = [nearMe.lng + ',' + nearMe.lat].concat(chunk.map(function(c){ return Number(c.st.lng) + ',' + Number(c.st.lat); })).join(';');
+      const res = await fetch('https://router.project-osrm.org/table/v1/driving/' + coords + '?sources=0&annotations=distance,duration');
+      if(!res.ok) throw new Error('HTTP ' + res.status);
+      const json = await res.json();
+      if(json.code !== 'Ok' || !json.distances || !json.distances[0]) throw new Error('bad response');
+      chunk.forEach(function(c, k){
+        const m = json.distances[0][k+1], t = json.durations && json.durations[0] ? json.durations[0][k+1] : null;
+        nearMe.road[myKey + '|' + c.st.id + '|' + c.st.lat + ',' + c.st.lng] = (m == null) ? { km:null, min:null } : { km: m/1000, min: t == null ? null : Math.round(t/60) };
+      });
+      if(token !== nearFetchToken) return;
+    }
+    nearMe.status = 'done';
+  }catch(e){
+    console.error(e);
+    nearMe.status = 'fail';
+  }
+  if(token === nearFetchToken) renderStores();
+}
+function roadInfo(st){
+  if(nearMe.lat == null) return null;
+  const r = nearMe.road[nearMe.lat.toFixed(3) + ',' + nearMe.lng.toFixed(3) + '|' + st.id + '|' + st.lat + ',' + st.lng];
+  return (r && r.km != null) ? r : null;
+}
+function setNearMe(on){
+  nearMe.on = on;
+  $('#nearMeBtn').classList.toggle('primary', on);
+  $('#nearMeBtn').classList.toggle('ghost', !on);
+  $('#nearMeBtn').textContent = on ? '📍 ใกล้ฉัน (เปิดอยู่)' : '📍 ใกล้ฉัน';
+  $('#nearRadius').classList.toggle('hidden', !on);
+  renderStores();
+  if(on) fetchRoadDistances();
+}
+$('#nearMeBtn').addEventListener('click', function(){
+  if(nearMe.on){ setNearMe(false); return; }
+  if(!navigator.geolocation){ toast('เบราว์เซอร์นี้ไม่รองรับการระบุตำแหน่ง', 'error'); return; }
+  toast('กำลังค้นหาตำแหน่งปัจจุบัน...', 'ok');
+  navigator.geolocation.getCurrentPosition(function(pos){
+    nearMe.lat = pos.coords.latitude; nearMe.lng = pos.coords.longitude;
+    setNearMe(true);
+  }, function(err){
+    toast(err && err.code === 1 ? 'ไม่ได้รับอนุญาตให้เข้าถึงตำแหน่ง — กรุณาอนุญาตในเบราว์เซอร์' : 'ไม่สามารถระบุตำแหน่งปัจจุบันได้', 'error');
+  }, { enableHighAccuracy:true, timeout:15000, maximumAge:30000 });
+});
+$('#nearRadius').addEventListener('change', function(){ nearMe.radius = Number($('#nearRadius').value) || 0; renderStores(); fetchRoadDistances(); });
+
 function renderStores(){
   const realCount = stores.filter(function(x){ return !isRetailStore(x); }).length;
   $('#storeCountBadge').textContent = realCount;
@@ -1545,7 +1630,28 @@ function renderStores(){
     return !q || (s.name||'').toLowerCase().indexOf(q)!==-1 || (s.contact||'').toLowerCase().indexOf(q)!==-1 || (s.phone||'').toLowerCase().indexOf(q)!==-1;
   });
   const withLastOrder = filtered.map(function(s){ return { store: s, lastOrder: storeActiveStockInfo(s.id) }; });
+  let noCoordCount = 0;
+  if(nearMe.on){
+    withLastOrder.forEach(function(x){
+      if(!storeHasCoords(x.store)){ x.dist = null; x.straight = null; x.road = null; return; }
+      x.straight = distanceKm(nearMe.lat, nearMe.lng, Number(x.store.lat), Number(x.store.lng));
+      x.road = roadInfo(x.store);
+      x.dist = x.road ? x.road.km : x.straight;
+    });
+    noCoordCount = withLastOrder.filter(function(x){ return x.dist == null && !isRetailStore(x.store); }).length;
+    if(nearMe.radius > 0){
+      for(let i = withLastOrder.length - 1; i >= 0; i--){
+        if(withLastOrder[i].dist == null || withLastOrder[i].dist > nearMe.radius) withLastOrder.splice(i, 1);
+      }
+    }
+  }
   withLastOrder.sort(function(a,b){
+    if(nearMe.on){
+      if(a.dist == null && b.dist == null) return (a.store.name||'').localeCompare(b.store.name||'', 'th');
+      if(a.dist == null) return 1;
+      if(b.dist == null) return -1;
+      return a.dist - b.dist;
+    }
     const ra = isRetailStore(a.store), rb = isRetailStore(b.store);
     if(ra !== rb) return ra ? -1 : 1;
     if(!a.lastOrder && !b.lastOrder) return (a.store.name||'').localeCompare(b.store.name||'', 'th');
@@ -1554,9 +1660,15 @@ function renderStores(){
     return a.lastOrder.date - b.lastOrder.date;
   });
   const shownReal = withLastOrder.filter(function(x){ return !isRetailStore(x.store); }).length;
-  $('#storeCountLine').textContent = 'ร้านค้าทั้งหมด ' + realCount + ' ร้าน' + (q ? ' · พบจากการค้นหา ' + shownReal + ' ร้าน' : '') + ' (ไม่นับ "ลูกค้าทั่วไป")';
+  $('#storeCountLine').textContent = 'ร้านค้าทั้งหมด ' + realCount + ' ร้าน' + (q ? ' · พบจากการค้นหา ' + shownReal + ' ร้าน' : '') + ' (ไม่นับ "ลูกค้าทั่วไป")' +
+    (nearMe.on ? ' · ใกล้ฉัน' + (nearMe.radius > 0 ? ' ภายใน ' + nearMe.radius + ' กม.' : '') + ': ' + shownReal + ' ร้าน' + (noCoordCount > 0 ? ' (' + noCoordCount + ' ร้านยังไม่มีพิกัด จึงเรียงไม่ได้)' : '') +
+    (nearMe.status === 'loading' ? ' · กำลังคำนวณระยะทางจริงตามเส้นทาง...' : nearMe.status === 'fail' ? ' · คำนวณเส้นทางจริงไม่สำเร็จ แสดงระยะเส้นตรงแทน (กดปุ่มใกล้ฉันสองครั้งเพื่อลองใหม่)' : ' · ระยะตามเส้นทางขับรถ') : '');
   list.innerHTML = '';
-  if(withLastOrder.length === 0){ empty.classList.remove('hidden'); }
+  if(withLastOrder.length === 0){
+    if(!empty.dataset.orig) empty.dataset.orig = empty.innerHTML;
+    empty.innerHTML = nearMe.on ? '<strong>ไม่พบร้านค้าในระยะที่เลือก</strong>ลองขยายระยะทาง หรือเพิ่มพิกัดให้ร้านค้าในหน้าแก้ไขร้าน' : empty.dataset.orig;
+    empty.classList.remove('hidden');
+  }
   else{
     empty.classList.add('hidden');
     withLastOrder.forEach(function(x){
@@ -1566,6 +1678,9 @@ function renderStores(){
       row.className = 'row-item';
       row.innerHTML =
         '<div class="main-line"><span class="title">' + escapeHtml(s.name || 'ไม่ระบุชื่อ') + '</span>' +
+        (nearMe.on && x.dist != null ? (x.road
+          ? '<span class="tag" style="background:var(--ok-bg);color:var(--ok);">ขับรถ ' + formatKm(x.road.km) + (x.road.min != null ? ' · ~' + x.road.min + ' นาที' : '') + '</span>'
+          : '<span class="tag" style="background:var(--wait-bg);color:var(--wait);">เส้นตรง ~' + formatKm(x.straight) + '</span>') : '') +
         (s.contact ? '<span class="subtle">ผู้ติดต่อ: ' + escapeHtml(s.contact) + '</span>' : '') + '</div><div></div>' +
         '<div class="sub-line">' + (s.phone ? escapeHtml(s.phone) + ' · ' : '') + escapeHtml(s.address || 'ยังไม่มีที่อยู่') + '</div>' +
         (isRetailStore(s) ? '<div class="sub-line">ร้านพิเศษสำหรับบันทึกการขายปลีก — กดเพื่อดูประวัติการขายปลีก</div>' : '<div class="sub-line">' + (lastOrder ? escapeHtml(lastOrder.text) + '<div style="margin-top:5px;">' + lastReceivedBadge(lastOrder.product, lastOrder.date) + '</div>' : 'ยังไม่มีประวัติการรับสินค้าเข้าสต๊อก') + '</div>');
